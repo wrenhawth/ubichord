@@ -9,6 +9,17 @@
 
 - `npm run dev`
 
+## Using Tone.js with React
+
+[Example](https://github.com/Tonejs/Tone.js/wiki/Using-Tone.js-with-React-React-Typescript-or-Vue#the-react-component-using-hooks-demo)
+
+## References
+
+- [Tone.js](https://tonejs.github.io/)
+  - [Github Repo](https://github.com/Tonejs/Tone.js)
+  - [Examples](https://tonejs.github.io/examples/)
+- [React Basics](https://react.dev/learn)
+
 # React + TypeScript + Vite Template
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
