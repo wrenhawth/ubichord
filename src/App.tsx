@@ -1,31 +1,50 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 
-import { MonoSynth, now, PolySynth } from "tone";
+import * as Tone from "tone";
+import * as _ from "lodash";
+import { keysFromChords, notesFromChord } from "./chords";
 
 function App() {
-  const polySynth = useRef<PolySynth | null>(null);
+  const polySynth = useRef<Tone.PolySynth | null>(null);
+
+  const [chordHistory, setChordHistory] = useState<string[]>([]);
+  console.log(keysFromChords(chordHistory));
 
   useEffect(() => {
-    polySynth.current = new PolySynth({
-      voice: MonoSynth,
+    polySynth.current = new Tone.PolySynth({
+      voice: Tone.Synth,
       maxPolyphony: 14,
     }).toDestination();
-  });
+  }, []);
 
+  const playChord = useCallback(
+    (chord: string) => {
+      const lastChord = _.last(chordHistory);
+      if (lastChord) {
+        const lastNotes = notesFromChord(lastChord);
+        polySynth?.current?.triggerRelease(lastNotes);
+      }
+
+      const notes = notesFromChord(chord);
+      polySynth?.current?.triggerAttack(notes);
+      setChordHistory([...chordHistory, chord]);
+    },
+    [chordHistory],
+  );
+
+  const stopAll = useCallback(() => {
+    polySynth.current?.releaseAll();
+    setChordHistory([]);
+  }, []);
   return (
     <>
-      <section id="center">
+      <section className="center">
         <div>
           <h1>UbiChord</h1>
           <button
             onClick={() => {
-              polySynth?.current?.releaseAll("8n");
-              polySynth?.current?.triggerAttackRelease(
-                ["C4", "E4", "G4"],
-                "2n",
-                now(),
-              );
+              playChord("C");
             }}
           >
             C Major
@@ -33,47 +52,85 @@ function App() {
 
           <button
             onClick={() => {
-              polySynth?.current?.releaseAll();
-              polySynth?.current?.triggerAttackRelease(
-                ["A3", "C4", "E4"],
-                "2n",
-                now(),
-              );
-            }}
-          >
-            A minor
-          </button>
-          <button
-            onClick={() => {
-              polySynth?.current?.releaseAll();
-
-              polySynth?.current?.triggerAttackRelease(
-                ["F4", "A4", "C5"],
-                "2n",
-                now(),
-              );
+              playChord("F");
             }}
           >
             F Major
           </button>
           <button
             onClick={() => {
-              polySynth?.current?.releaseAll();
-
-              polySynth?.current?.triggerAttackRelease(
-                ["G4", "B4", "D5"],
-                "2n",
-                now(),
-              );
+              playChord("G");
             }}
           >
             G Major
           </button>
         </div>
+        <div>
+          <button
+            onClick={() => {
+              playChord("Am");
+            }}
+          >
+            A minor
+          </button>
+          <button
+            onClick={() => {
+              playChord("Dm");
+            }}
+          >
+            D minor
+          </button>
+          <button
+            onClick={() => {
+              playChord("Em");
+            }}
+          >
+            E minor
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              playChord("G7");
+            }}
+          >
+            G7
+          </button>
+          <button
+            onClick={() => {
+              playChord("E7");
+            }}
+          >
+            E7
+          </button>
+          <button
+            onClick={() => {
+              playChord("C7");
+            }}
+          >
+            C7
+          </button>
+          <button
+            onClick={() => {
+              playChord("A7");
+            }}
+          >
+            A7
+          </button>
+          <button
+            onClick={() => {
+              playChord("D7");
+            }}
+          >
+            D7
+          </button>
+        </div>
+        <div>
+          <button onClick={stopAll}>Stop</button>
+        </div>
       </section>
 
       <div className="ticks"></div>
-      <section id="spacer"></section>
     </>
   );
 }
