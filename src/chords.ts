@@ -20,6 +20,5 @@ export const keysFromChords = (chords: string[]): string[] => {
       return s.endsWith("major") || s.endsWith("minor");
     });
   });
-  console.log(possibleKeys);
   return possibleKeys;
 };

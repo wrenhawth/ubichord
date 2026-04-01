@@ -37,6 +37,8 @@ function App() {
     polySynth.current?.releaseAll();
     setChordHistory([]);
   }, []);
+
+  const possibleKeys = keysFromChords(_.takeRight(chordHistory, 3));
   return (
     <>
       <section className="center">
@@ -127,6 +129,14 @@ function App() {
         </div>
         <div>
           <button onClick={stopAll}>Stop</button>
+        </div>
+        <div>
+          <h2>Possible Keys of Last 3 Chords</h2>
+          <ul>
+            {possibleKeys.map((k) => (
+              <li key={k}>{k}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
