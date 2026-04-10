@@ -4,7 +4,6 @@ import "./App.css";
 import "@zumer/orbit";
 
 import * as Tone from "tone";
-import * as _ from "lodash";
 import { keysFromChords, notesFromChord } from "./chords";
 import MainChords from "./MainChords";
 import SecondaryChords from "./SecondaryChords";
@@ -24,7 +23,6 @@ function App() {
 
   const playChord = useCallback(
     (chord: string) => {
-      const lastChord = _.last(chordHistory);
       polySynth?.current?.releaseAll();
 
       const notes = notesFromChord(chord);
@@ -39,7 +37,7 @@ function App() {
     setChordHistory([]);
   }, []);
 
-  const possibleKeys = keysFromChords(_.takeRight(chordHistory, 3));
+  // const possibleKeys = keysFromChords(_.takeRight(chordHistory, 3));
   return (
     <div className="center">
       <div>
