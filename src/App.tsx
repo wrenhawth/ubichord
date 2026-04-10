@@ -1,9 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
+// import "@zumer/orbit/style";
+import "@zumer/orbit";
 
 import * as Tone from "tone";
 import * as _ from "lodash";
 import { keysFromChords, notesFromChord } from "./chords";
+import MainChords from "./MainChords";
+import SecondaryChords from "./SecondaryChords";
 
 function App() {
   const polySynth = useRef<Tone.PolySynth | null>(null);
@@ -21,10 +25,7 @@ function App() {
   const playChord = useCallback(
     (chord: string) => {
       const lastChord = _.last(chordHistory);
-      if (lastChord) {
-        const lastNotes = notesFromChord(lastChord);
-        polySynth?.current?.triggerRelease(lastNotes);
-      }
+      polySynth?.current?.releaseAll();
 
       const notes = notesFromChord(chord);
       polySynth?.current?.triggerAttack(notes);
@@ -40,10 +41,21 @@ function App() {
 
   const possibleKeys = keysFromChords(_.takeRight(chordHistory, 3));
   return (
-    <>
-      <section className="center">
+    <div className="center">
+      <div>
+        <h1>UbiChord</h1>
+        <button onClick={stopAll}>Stop</button>
+      </div>
+      <div className="bigbang">
+        <div className="gravity-spot">
+          <MainChords playChord={playChord} />
+          <SecondaryChords playChord={playChord} />
+        </div>
+
+        {/* </div> */}
+        {/* <section className="center">
         <div>
-          <h1>UbiChord</h1>
+          <MainChords />
           <button
             onClick={() => {
               playChord("C");
@@ -127,9 +139,7 @@ function App() {
             D7
           </button>
         </div>
-        <div>
-          <button onClick={stopAll}>Stop</button>
-        </div>
+        
         <div>
           <h2>Possible Keys of Last 3 Chords</h2>
           <ul>
@@ -138,10 +148,11 @@ function App() {
             ))}
           </ul>
         </div>
-      </section>
+      </section> */}
+      </div>
 
       <div className="ticks"></div>
-    </>
+    </div>
   );
 }
 
