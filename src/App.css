@@ -71,6 +71,24 @@
   }
 }
 
+.stop-sound {
+  padding: 0.5rem 1.5rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  border-style: none;
+
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: white;
+  color: black;
+  border: thin solid black;
+}
+
+.stop-sound:hover {
+  background-color: black;
+  color: white;
+}
+
 #next-steps {
   display: flex;
   border-top: 1px solid var(--border);
@@ -205,6 +223,30 @@
   }
 }
 
+@keyframes demoColorChords {
+  0% {filter: opacity(100%) drop-shadow(0px 0px 2px var(--o-red)); fill: var(--o-red);}
+  10% {filter: opacity(0%); transform: scale(0.90);}
+  14% {filter: opacity(100%) drop-shadow(0px 0px 2px var(--o-orange)); fill: var(--o-orange); transform: scale(1);}
+  38% {filter: opacity(0%);  transform: scale(0.90);}
+  42% {filter: opacity(100%) drop-shadow(0px 0px 2px var(--o-yellow)); fill: var(--o-yellow); transform: scale(1);}
+  52% {filter: opacity(0%); transform: scale(0.90);}
+  56% {filter: opacity(100%) drop-shadow(0px 0px 2px var(--o-green)); fill: var(--o-green); transform: scale(1);}
+  66% {filter: opacity(0%); transform: scale(0.90);}
+  70% {filter: opacity(100%) drop-shadow(0px 0px 2px var(--o-blue)); fill: var(--o-blue); transform: scale(1);}
+  80% {filter: opacity(0%); transform: scale(0.90);}
+  84% {filter: opacity(100%) drop-shadow(0px 0px 2px var(--o-indigo)); fill: var(--o-indigo); transform: scale(1);}
+  96% {filter: opacity(0%); transform: scale(0.90);}
+  100% {filter: opacity(100%) drop-shadow(0px 0px 2px var(--o-purple)); fill: var(--o-purple); transform: scale(1);}
+}
+
+.hand-icon {
+  animation-name: demoColorChords;
+  border-radius: 50%;
+  padding: 0.25rem;
+  animation-duration: 15s;
+  filter: opacity(0%);
+}
+
 .red {
   --o-fill: var(--o-red);
 
@@ -212,7 +254,6 @@
   --o-fill: var(--o-red-light);
   }
 }
-
 
 .orange {
   --o-fill: var(--o-orange);
@@ -227,6 +268,7 @@
   --o-fill: var(--o-yellow-light);
   }
 }
+
 .green {
   --o-fill: var(--o-green);
     &:hover {
@@ -247,6 +289,7 @@
   --o-fill: var(--o-indigo-light);
   }
 }
+
 .purple {
   --o-fill: var(--o-purple);
     &:hover {
@@ -261,6 +304,7 @@
 .labels {
   .satellite {
     color: white;
+    font-weight: bold;
     border: none;
     pointer-events: none;
   }
