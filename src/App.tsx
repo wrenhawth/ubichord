@@ -42,7 +42,8 @@ function App() {
     <div className="center">
       <div>
         <h1>UbiChord</h1>
-        <button onClick={stopAll}>Stop</button>
+        <p>Tap the buttons on the wheel to chain notes. To pause the sound click stop.</p>
+        <button className="stop-sound" onClick={stopAll}>Stop</button>
       </div>
       <div className="bigbang">
         <div className="gravity-spot">
