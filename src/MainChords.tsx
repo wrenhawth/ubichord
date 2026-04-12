@@ -1,5 +1,3 @@
-import HandIcon from './assets/hand-index-thumb.svg';
-
 export default function MainChords({
   playChord,
 }: {
