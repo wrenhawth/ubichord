@@ -14,12 +14,12 @@ export default function MainChords({
       </div>
       <div className="orbit-3">
         {/* <button>C</button> */}
-        <o-arc className="red grow-2x gap-8" shape="rounded" onClick={() => playChord("C")} />
-        <o-arc className="orange grow-2x gap-8" shape="rounded" onClick={() => playChord("Dm")} />
-        <o-arc className="yellow grow-2x gap-8" shape="rounded" onClick={() => playChord("Em")} />
-        <o-arc className="green grow-2x gap-8" shape="rounded" onClick={() => playChord("F")} />
-        <o-arc className="blue grow-2x gap-8" shape="rounded" onClick={() => playChord("G")} />
-        <o-arc className="indigo grow-2x gap-8" shape="rounded" onClick={() => playChord("Am")} />
+        <o-arc className="red grow-2x gap-8" onClick={() => playChord("C")} />
+        <o-arc className="orange grow-2x gap-8" onClick={() => playChord("Dm")} />
+        <o-arc className="yellow grow-2x gap-8" onClick={() => playChord("Em")} />
+        <o-arc className="green grow-2x gap-8" onClick={() => playChord("F")} />
+        <o-arc className="blue grow-2x gap-8" onClick={() => playChord("G")} />
+        <o-arc className="indigo grow-2x gap-8" onClick={() => playChord("Am")} />
       </div>
       <div className="orbit-3 from-25 labels">
         <div className="satellite">
