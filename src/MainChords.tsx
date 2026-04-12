@@ -1,4 +1,4 @@
-import HandIcon from './assets/hand-index-thumb.svg?react';
+import HandIcon from './assets/hand-index-thumb.svg';
 
 export default function MainChords({
   playChord,
@@ -10,7 +10,7 @@ export default function MainChords({
       <div className="orbit-0">
         <div className="satellite grow-1x">
           <div className="capsule">
-            <HandIcon className="hand-icon" width="32" height="32"/>
+            <img className="hand-icon" src={HandIcon} alt="Touch to change chord"/>
           </div>
         </div>
       </div>
