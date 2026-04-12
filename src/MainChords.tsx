@@ -10,7 +10,7 @@ export default function MainChords({
       <div className="orbit-0">
         <div className="satellite grow-1x">
           <div className="capsule">
-            <img className="hand-icon" src={HandIcon} alt="Touch to change chord"/>
+            <div className="hand-icon">o</div>
           </div>
         </div>
       </div>
