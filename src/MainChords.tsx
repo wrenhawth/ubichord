@@ -1,6 +1,10 @@
+import clsx from "clsx";
+
 export default function MainChords({
+  currentChord,
   playChord,
 }: {
+  currentChord: string | null;
   playChord: (chord: string) => void;
 }) {
   return (
@@ -13,13 +17,48 @@ export default function MainChords({
         </div>
       </div>
       <div className="orbit-3">
-        {/* <button>C</button> */}
-        <o-arc className="red grow-2x gap-8" onClick={() => playChord("C")} />
-        <o-arc className="orange grow-2x gap-8" onClick={() => playChord("Dm")} />
-        <o-arc className="yellow grow-2x gap-8" onClick={() => playChord("Em")} />
-        <o-arc className="green grow-2x gap-8" onClick={() => playChord("F")} />
-        <o-arc className="blue grow-2x gap-8" onClick={() => playChord("G")} />
-        <o-arc className="indigo grow-2x gap-8" onClick={() => playChord("Am")} />
+        <o-arc
+          className={clsx(
+            "red grow-2x gap-8",
+            currentChord === "C" && "active",
+          )}
+          onClick={() => playChord("C")}
+        />
+        <o-arc
+          className={clsx(
+            "orange grow-2x gap-8",
+            currentChord === "Dm" && "active",
+          )}
+          onClick={() => playChord("Dm")}
+        />
+        <o-arc
+          className={clsx(
+            "yellow grow-2x gap-8",
+            currentChord === "Em" && "active",
+          )}
+          onClick={() => playChord("Em")}
+        />
+        <o-arc
+          className={clsx(
+            "green grow-2x gap-8",
+            currentChord === "F" && "active",
+          )}
+          onClick={() => playChord("F")}
+        />
+        <o-arc
+          className={clsx(
+            "blue grow-2x gap-8",
+            currentChord === "G" && "active",
+          )}
+          onClick={() => playChord("G")}
+        />
+        <o-arc
+          className={clsx(
+            "indigo grow-2x gap-8",
+            currentChord === "Am" && "active",
+          )}
+          onClick={() => playChord("Am")}
+        />
       </div>
       <div className="orbit-3 from-25 labels">
         <div className="satellite">
