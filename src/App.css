@@ -248,45 +248,45 @@
 }
 
 .red {
-  --o-fill: var(--o-red);
+  --o-fill: #cb251d;
 
   &:hover {
-  --o-fill: var(--o-red-light);
+  --o-fill: #991210;
   }
 }
 
 .orange {
-  --o-fill: var(--o-orange);
+  --o-fill: #ff8200;
     &:hover {
-  --o-fill: var(--o-orange-light);
+  --o-fill: #e76900;
   }
 }
-
+/* swapped with pink rose due to contrast issues with white text*/
 .yellow {
-  --o-fill: var(--o-yellow);
+  --o-fill: #e11d48;
     &:hover {
-  --o-fill: var(--o-yellow-light);
+  --o-fill: #ae0d26;
   }
 }
 
 .green {
-  --o-fill: var(--o-green);
+  --o-fill: #007d3e;
     &:hover {
-  --o-fill: var(--o-green-light);
+  --o-fill: #005520;
   }
 }
 
 .blue {
-  --o-fill: var(--o-blue);
+  --o-fill: #086fe8;
     &:hover {
-  --o-fill: var(--o-blue-light);
+  --o-fill: #084bbb;
   }
 }
 
 .indigo {
-  --o-fill: var(--o-indigo);
+  --o-fill: #5c5ce6;
     &:hover {
-  --o-fill: var(--o-indigo-light);
+  --o-fill: #3739b9;
   }
 }
 
@@ -312,33 +312,33 @@
 .satellite {
   color: white;
   &.red {
-  background-color: var(--o-red);
+  background-color: #cb251d;
   &:hover {
-  background-color: var(--o-red-light);
+  background-color: #991210;
   }
   }
   &.orange {
-  background-color: var(--o-orange);
+  background-color: #ff8200;
   &:hover {
-  background-color: var(--o-orange-light);
+  background-color: #e76900;
   }
   }
   &.yellow {
-  background-color: var(--o-yellow);
+  background-color: #e11d48;
   &:hover {
-  background-color: var(--o-yellow-light);
+  background-color: #ae0d26;
   }
   }
   &.green {
-  background-color: var(--o-green);
+  background-color: #007d3e;
   &:hover {
-  background-color: var(--o-green-light);
+  background-color: #005520;
   }
   }
   &.blue {
-  background-color: var(--o-blue);
+  background-color: #086fe8;
   &:hover {
-  background-color: var(--o-blue-light);
+  background-color: #084bbb;
   }
   }
   &.indigo {
@@ -348,9 +348,9 @@
   }
   }
   &.violet {
-  background-color: var(--o-purple);
+  background-color: #0891b2;
   &:hover {
-  background-color: var(--o-purple-light);
+  background-color: #155e75;
   }
 
   }
