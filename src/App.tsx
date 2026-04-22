@@ -47,8 +47,8 @@ function App() {
       <div>
         <h1>UbiChord</h1>
         <p>
-          Tap the buttons on the wheel to chain notes. To pause the sound, click
-          stop.
+          Tap the buttons on the wheel to chain chords. To pause the sound, click
+          stop. Use the strip to play individual notes.
         </p>
         <button className="stop-sound" onClick={stopAll}>
           Stop
